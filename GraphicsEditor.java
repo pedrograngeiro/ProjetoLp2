@@ -28,30 +28,22 @@ class ListFrame extends JFrame {
     String figuraSelecionada;
     ListFrame () {
     	RectPanel panel = new RectPanel();
-    	EllipsePanel ePanel = new EllipsePanel();
-        this.addWindowListener (
+    	this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
                     System.exit(0);
                 }
             }
         );
-        this.addKeyListener(
-        		new KeyAdapter() {
-        			public void keyPressed (KeyEvent evt) {
-        				
-        			}
-        		}
-        );
         this.addKeyListener (
             new KeyAdapter() {
-                public void keyPressed (KeyEvent evt) {
+                public void keyPressed (KeyEvent e) {
                     
-                    if (evt.getKeyChar() == 'r') {
+                    if (e.getKeyChar() == 'r') {
                         figuraSelecionada = "rect";
                     }
 
-                    if (evt.getKeyChar() == 'e') {
+                    if (e.getKeyChar() == 'e') {
                         figuraSelecionada = "ellipse";
                     }
 
@@ -59,14 +51,14 @@ class ListFrame extends JFrame {
                         
                         setContentPane(panel);
                         panel.setSize(350, 350);
-                        panel.addMouseListener(new ReleaseListener(panel));
+                        panel.addMouseListener(new ReleaseListener(panel, null));
                     }
 
                     if (figuraSelecionada == "ellipse") {
                         
-                        setContentPane(ePanel);
-                        ePanel.setSize(350, 350);
-                        ePanel.addMouseListener(new ReleaseListenerEllipse(ePanel));
+                        setContentPane(panel);
+                        panel.setSize(350, 350);
+//                        panel.addMouseListener(new ReleaseListener(ePanel));
                     }
                 }
             }
