@@ -4,20 +4,20 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import figures.Rect;
+import figures.*;
 
 public class RectPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	public List<Rect> rects = new LinkedList<Rect>();
+	public List<Figure> figs = new LinkedList<Figure>();
 
     public void addRect(Rect rect){
-        rects.add(rect);
+        figs.add(rect);
         this.repaint();
     }
 
     @Override
     public void paint(Graphics g) {
-        for (Rect r : rects) {
+        for (Figure r : this.figs) {
             r.paint(g);
         }
     }

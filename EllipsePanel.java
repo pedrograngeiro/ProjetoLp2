@@ -4,20 +4,20 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import figures.Ellipse;
+import figures.*;
 
 public class EllipsePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	public List<Ellipse> ellipses = new LinkedList<Ellipse>();
+	public List<Figure> figs = new LinkedList<Figure>();
 
     public void addEllipse(Ellipse ellipse){
-        ellipses.add(ellipse);
+        figs.add(ellipse);
         this.repaint();
     }
 
     @Override
     public void paint(Graphics g) {
-        for (Ellipse e : ellipses) {
+        for (Figure e : this.figs) {
             e.paint(g);
         }
     }
